@@ -15,33 +15,66 @@ namespace ____
 
             int storedge = 0;
 
+            int rndmvalue = number[random.Next(0, 11)];
+            int rndmvalue2 = number[random.Next(0, 11)];
+
+            string rndmsuits = suits[random.Next(0, 4)];
+            string rndmsuits2 = suits[random.Next(0, 4)];
+
+            Console.WriteLine("välkommen till Black jack");
+            Console.WriteLine($"Dina startkort kommer att vara {rndmsuits} {rndmvalue} och {rndmsuits2} {rndmvalue2}");
+            Console.WriteLine($"Du kommer nu att ha {rndmvalue + rndmvalue2} poäng");
+            Console.WriteLine("Vill du ta ett nytt kort (y/n)");
+            string val = Console.ReadLine();
+            val.ToLower();
+
+            if (val == "y")
+            {
+                sant = true;
+            }
+
+            if (val == "n")
+            {
+                sant = false;
+            }
+
+            int startplayer = rndmvalue + rndmvalue2;
+
             while (sant)
             {
-                int rndmvalue = number[random.Next(0, 11)];
-                int rndmvalue2 = number[random.Next(0, 11)];
+                int rndmvalue5 = number[random.Next(0, 11)];
+                string rndmsuits5 = suits[random.Next(0, 4)];
 
-                string rndmsuits = suits[random.Next(0, 4)];
-                string rndmsuits2 = suits[random.Next(0, 4)];
+                Console.WriteLine($"Du frog ett {rndmsuits5} {rndmvalue5}");
+                Console.WriteLine($"Du har nu {rndmvalue5 + startplayer} poäng");
+                Console.WriteLine("Vill du dra ett nytt kort? (y/n)");
+                string val2 = Console.ReadLine();
+                val2.ToLower();
 
-                Console.WriteLine("välkommen till Black jack");
-                Console.WriteLine($"Dina startkort kommer att vara {rndmsuits} {rndmvalue} och {rndmsuits2} {rndmvalue2}");
-                Console.WriteLine($"Du kommer nu att ha {rndmvalue + rndmvalue2} poäng");
-                Console.WriteLine("Vill du ta ett nytt kort (y/n)");
-                string val = Console.ReadLine();
-                val.ToLower();
+                int endplayer = rndmvalue5 + startplayer;
+                endplayer = startplayer;
 
-                int startplayer = rndmvalue + rndmvalue2;
+                if (endplayer > 21)
+                {
+                    Console.WriteLine("Du har förlorat");
+                    break;
+                }
+                if(endplayer == 21)
+                {
+                    Console.WriteLine("Grattis du har vunnit");
+                    break;
+                }
 
 
             }
 
             while (!sant)
             {
-                int rndmvalue=number[random.Next(0, 11)];
-                int rndmvalue2 = number[random.Next(0, 11)];
+                int rndmvalue3=number[random.Next(0, 11)];
+                int rndmvalue4 = number[random.Next(0, 11)];
 
-                string rndmsuits = suits[random.Next(0, 4)];
-                string rndmsuits2 = suits[random.Next(0, 4)];
+                string rndmsuits3 = suits[random.Next(0, 4)];
+                string rndmsuits4 = suits[random.Next(0, 4)];
 
                 Console.WriteLine($"Datorn drog ett {rndmsuits} {rndmvalue} och ett {rndmsuits2} {rndmvalue2}");
                 Console.WriteLine($"Datorn har nu {rndmvalue + rndmvalue2} poäng");
