@@ -45,7 +45,7 @@ namespace ____
                 int rndmvalue5 = number[random.Next(0, 11)];
                 string rndmsuits5 = suits[random.Next(0, 4)];
 
-                Console.WriteLine($"Du frog ett {rndmsuits5} {rndmvalue5}");
+                Console.WriteLine($"Du fick ett {rndmsuits5} {rndmvalue5}");
                 Console.WriteLine($"Du har nu {rndmvalue5 + startplayer} poäng");
                 Console.WriteLine("Vill du dra ett nytt kort? (y/n)");
                 string val2 = Console.ReadLine();
@@ -65,6 +65,11 @@ namespace ____
                     break;
                 }
 
+                if (val2 == "n")
+                {
+                    sant = false;
+                }
+
 
             }
 
@@ -73,11 +78,26 @@ namespace ____
                 int rndmvalue3=number[random.Next(0, 11)];
                 int rndmvalue4 = number[random.Next(0, 11)];
 
+                int rndmvalue5 = number[random.Next(0, 11)];
+
                 string rndmsuits3 = suits[random.Next(0, 4)];
                 string rndmsuits4 = suits[random.Next(0, 4)];
 
                 Console.WriteLine($"Datorn drog ett {rndmsuits} {rndmvalue} och ett {rndmsuits2} {rndmvalue2}");
                 Console.WriteLine($"Datorn har nu {rndmvalue + rndmvalue2} poäng");
+
+                int PCend = rndmvalue + rndmvalue2;
+
+                if (PCend >= 17)
+                {
+                    break;
+                }
+
+                else
+                {
+                    
+                }
+
 
             }
 
