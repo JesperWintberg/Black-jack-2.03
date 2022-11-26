@@ -39,6 +39,7 @@ namespace ____
             }
 
             int startplayer = rndmvalue + rndmvalue2;
+         
 
             while (sant)
             {
@@ -52,6 +53,7 @@ namespace ____
                 val2.ToLower();
 
                 int endplayer = rndmvalue5 + startplayer;
+
                 endplayer = startplayer;
 
                 if (endplayer > 21)
@@ -78,15 +80,13 @@ namespace ____
                 int rndmvalue3=number[random.Next(0, 11)];
                 int rndmvalue4 = number[random.Next(0, 11)];
 
-                int rndmvalue5 = number[random.Next(0, 11)];
-
                 string rndmsuits3 = suits[random.Next(0, 4)];
                 string rndmsuits4 = suits[random.Next(0, 4)];
 
-                Console.WriteLine($"Datorn drog ett {rndmsuits} {rndmvalue} och ett {rndmsuits2} {rndmvalue2}");
-                Console.WriteLine($"Datorn har nu {rndmvalue + rndmvalue2} poäng");
+                Console.WriteLine($"Datorn drog ett {rndmsuits3} {rndmvalue3} och ett {rndmsuits4} {rndmvalue4}");
+                Console.WriteLine($"Datorn har nu {rndmvalue3 + rndmvalue4} poäng");
 
-                int PCend = rndmvalue + rndmvalue2;
+                int PCend = rndmvalue3 + rndmvalue4;
 
                 if (PCend >= 17)
                 {
