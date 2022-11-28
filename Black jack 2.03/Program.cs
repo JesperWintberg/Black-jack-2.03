@@ -13,13 +13,14 @@ namespace ____
 
             bool sant = true;
 
-            int storedge = 0;
 
             int rndmvalue = number[random.Next(0, 11)];
             int rndmvalue2 = number[random.Next(0, 11)];
 
             string rndmsuits = suits[random.Next(0, 4)];
             string rndmsuits2 = suits[random.Next(0, 4)];
+
+
 
             Console.WriteLine("välkommen till Black jack");
             Console.WriteLine($"Dina startkort kommer att vara {rndmsuits} {rndmvalue} och {rndmsuits2} {rndmvalue2}");
@@ -39,40 +40,48 @@ namespace ____
             }
 
             int startplayer = rndmvalue + rndmvalue2;
-         
+            int endplayer = startplayer;
 
             while (sant)
             {
                 int rndmvalue5 = number[random.Next(0, 11)];
                 string rndmsuits5 = suits[random.Next(0, 4)];
+               
+                if (endplayer == startplayer)
+                {
+                    endplayer = startplayer + rndmvalue5;
+                }
 
-                Console.WriteLine($"Du fick ett {rndmsuits5} {rndmvalue5}");
-                Console.WriteLine($"Du har nu {rndmvalue5 + startplayer} poäng");
-                Console.WriteLine("Vill du dra ett nytt kort? (y/n)");
-                string val2 = Console.ReadLine();
-                val2.ToLower();
+                else
+                {
+                    endplayer = endplayer + rndmvalue5;    
+                }
 
-                int endplayer = rndmvalue5 + startplayer;
-
-                endplayer = startplayer;
 
                 if (endplayer > 21)
                 {
                     Console.WriteLine("Du har förlorat");
+                    Console.WriteLine($"Du fick {endplayer} poäng");
                     break;
                 }
-                if(endplayer == 21)
+
+                if (endplayer == 21)
                 {
                     Console.WriteLine("Grattis du har vunnit");
+                    Console.WriteLine($"Du fick {endplayer} poäng");
                     break;
                 }
+
+                Console.WriteLine($"Du fick ett {rndmsuits5} {rndmvalue5}");
+                Console.WriteLine($"Du har nu {endplayer} poäng");
+                Console.WriteLine("Vill du dra ett nytt kort? (y/n)");
+                string val2 = Console.ReadLine();
+                val2.ToLower();
 
                 if (val2 == "n")
                 {
                     sant = false;
                 }
-
-
             }
 
             while (!sant)
@@ -80,24 +89,37 @@ namespace ____
                 int rndmvalue3=number[random.Next(0, 11)];
                 int rndmvalue4 = number[random.Next(0, 11)];
 
-                string rndmsuits3 = suits[random.Next(0, 4)];
-                string rndmsuits4 = suits[random.Next(0, 4)];
+                int rndmvalue5 = number[random.Next(0, 11)];
 
-                Console.WriteLine($"Datorn drog ett {rndmsuits3} {rndmvalue3} och ett {rndmsuits4} {rndmvalue4}");
-                Console.WriteLine($"Datorn har nu {rndmvalue3 + rndmvalue4} poäng");
-
-                int PCend = rndmvalue3 + rndmvalue4;
+                int PCstart = rndmvalue3 + rndmvalue4;
+                int PCend = rndmvalue5 + PCstart;
 
                 if (PCend >= 17)
                 {
-                    break;
-                }
+                    if (endplayer > PCend)
+                    {
+                        Console.WriteLine("Grattis du vann");
+                        Console.WriteLine($"Datorn fick {PCend} poäng");
+                        Console.WriteLine($"Du fick {endplayer} poäng");
+                        break;
+                    }
 
-                else
-                {
-                    
-                }
+                    if (PCend > endplayer)
+                    {
+                        Console.WriteLine("Datron vann");
+                        Console.WriteLine($"Datorn fick {PCend} poäng");
+                        Console.WriteLine($"Du fick {endplayer} poäng");
+                        break;
+                    }
 
+                    if (PCend == 21)
+                    {
+                        Console.WriteLine("Datron vann");
+                        Console.WriteLine($"Datorn fick {PCend} poäng");
+                        Console.WriteLine($"Du fick {endplayer} poäng");
+                        break;
+                    }
+                }
 
             }
 
