@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Net.Http.Headers;
 
 namespace ____
 {
@@ -12,7 +13,8 @@ namespace ____
             Random random = new Random();
 
             bool sant = true;
-
+            bool spelregler = false;
+            bool avslutning = false;
 
             int rndmvalue = number[random.Next(0, 11)];
             int rndmvalue2 = number[random.Next(0, 11)];
@@ -20,9 +22,58 @@ namespace ____
             string rndmsuits = suits[random.Next(0, 4)];
             string rndmsuits2 = suits[random.Next(0, 4)];
 
+            Console.WriteLine("Välkommen till Black jack");
+            Console.WriteLine("1. Spela Black Jack");
+            Console.WriteLine("2. See förra vinnaren");
+            Console.WriteLine("3. Spelets regler");
+            Console.WriteLine("4. Stänga av programet");
+            Console.WriteLine("Skriv här: ");
+            string start = Console.ReadLine();
+            int start2 = int.Parse(start);
+
+            switch (start2)
+            {
+                case 1:
+                    sant = true;
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    spelregler = true;
+                    break;
+                case 4:
+                    avslutning = true;
+
+            }
+            while (avslutning = true)
+            {
+                Console.WriteLine("Tack för du har spelat");
+                Console.WriteLine("Ha en bra dag");
+            }
 
 
-            Console.WriteLine("välkommen till Black jack");
+            while (spelregler = true)
+            {
+                Console.WriteLine("I Black Jack så är ditt mål att nå 21 poäng eller så nära du bara kan.");
+                Console.WriteLine("Du får inte komma över 21 poäng för du förlorar du");
+                Console.WriteLine("Du kommer börja dra kort när du känner dig klar så kommer datorn att dra sinna kort");
+                Console.WriteLine("Lycka till");
+                Console.WriteLine("Vill du starta spelet (y/n)");
+                string val4 = Console.ReadLine();
+
+                if (val4 == "y")
+                {
+                    sant = true;
+                }
+                else if(val4 == "n")
+                {
+                    avslutning=true;    
+                }
+
+                break;
+            }
+
+
             Console.WriteLine($"Dina startkort kommer att vara {rndmsuits} {rndmvalue} och {rndmsuits2} {rndmvalue2}");
             Console.WriteLine($"Du kommer nu att ha {rndmvalue + rndmvalue2} poäng");
             Console.WriteLine("Vill du ta ett nytt kort (y/n)");
@@ -69,6 +120,8 @@ namespace ____
                 {
                     Console.WriteLine("Grattis du har vunnit");
                     Console.WriteLine($"Du fick {endplayer} poäng");
+                    Console.Write("Skriv in ditt namn: ");
+                    string namn = Console.ReadLine();
                     break;
                 }
 
@@ -101,6 +154,8 @@ namespace ____
                         Console.WriteLine("Grattis du vann");
                         Console.WriteLine($"Datorn fick {PCend} poäng");
                         Console.WriteLine($"Du fick {endplayer} poäng");
+                        Console.Write("Skriv in ditt namn: ");
+                        string namn = Console.ReadLine();
                         break;
                     }
 
@@ -118,6 +173,15 @@ namespace ____
                         Console.WriteLine($"Datorn fick {PCend} poäng");
                         Console.WriteLine($"Du fick {endplayer} poäng");
                         break;
+                    }
+
+                    if(PCend > 21)
+                    {
+                        Console.WriteLine("Grattis du vann");
+                        Console.WriteLine($"Datorn fick {PCend} poäng");
+                        Console.WriteLine($"Du fick {endplayer} poäng");
+                        Console.Write("Skriv in ditt namn: ");
+                        string namn = Console.ReadLine();
                     }
                 }
 
