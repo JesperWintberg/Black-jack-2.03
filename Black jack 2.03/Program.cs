@@ -27,8 +27,7 @@ namespace ____
             Console.WriteLine("2. See förra vinnaren");
             Console.WriteLine("3. Spelets regler");
             Console.WriteLine("4. Stänga av programet");
-            Console.WriteLine("Skriv här: ");
-            string start = Console.ReadLine();
+            Console.Write("Skriv här: "); string start = Console.ReadLine();
             int start2 = int.Parse(start);
 
             switch (start2)
@@ -42,13 +41,15 @@ namespace ____
                     spelregler = true;
                     break;
                 case 4:
-                    avslutning = true;
+                    avslutning= true;
+                    break;
 
             }
             while (avslutning = true)
             {
                 Console.WriteLine("Tack för du har spelat");
                 Console.WriteLine("Ha en bra dag");
+                break;
             }
 
 
@@ -87,7 +88,7 @@ namespace ____
 
             if (val == "n")
             {
-                sant = false;
+                avslutning = false;
             }
 
             int startplayer = rndmvalue + rndmvalue2;
