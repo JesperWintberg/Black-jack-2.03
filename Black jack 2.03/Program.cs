@@ -1,5 +1,6 @@
 using System;
 using System.Net.Http.Headers;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ____
 {
@@ -7,13 +8,18 @@ namespace ____
     {
         static void Main(string[] args)
         {
-            int[]number = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
+            int[] number = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
             string[] suits = { "Klöver", "Spader", "Knäckt", "Hjärter" };
 
             Random random = new Random();
 
+            Console.ForegroundColor = ConsoleColor.Blue;
+
+            //bool som startar player while loopen
             bool sant = true;
+            //bool som i steg 1 visar spelregler
             bool spelregler = false;
+            //bool som stänger av spelet
             bool avslutning = false;
 
             int rndmvalue = number[random.Next(0, 11)];
@@ -22,13 +28,15 @@ namespace ____
             string rndmsuits = suits[random.Next(0, 4)];
             string rndmsuits2 = suits[random.Next(0, 4)];
 
+            //start 
             Console.WriteLine("Välkommen till Black jack");
             Console.WriteLine("1. Spela Black Jack");
-            Console.WriteLine("2. See förra vinnaren");
+            Console.WriteLine("2. See förra vinnaren (WIP)");
             Console.WriteLine("3. Spelets regler");
             Console.WriteLine("4. Stänga av programet");
             Console.Write("Skriv här: "); string start = Console.ReadLine();
             int start2 = int.Parse(start);
+            Console.Clear();
 
             switch (start2)
             {
@@ -39,21 +47,26 @@ namespace ____
                     break;
                 case 3:
                     spelregler = true;
+                    avslutning = true;
                     break;
                 case 4:
-                    avslutning= true;
+                    avslutning = true;
+                    sant = false;
                     break;
 
             }
-            while (avslutning = true)
+
+            //Avslutnings medelande
+            while (avslutning)
             {
                 Console.WriteLine("Tack för du har spelat");
                 Console.WriteLine("Ha en bra dag");
-                break;
+                Console.Clear();
+                
             }
 
-
-            while (spelregler = true)
+            // Visar spelregler 
+            while (spelregler)
             {
                 Console.WriteLine("I Black Jack så är ditt mål att nå 21 poäng eller så nära du bara kan.");
                 Console.WriteLine("Du får inte komma över 21 poäng för du förlorar du");
@@ -66,15 +79,15 @@ namespace ____
                 {
                     sant = true;
                 }
-                else if(val4 == "n")
+                else if (val4 == "n")
                 {
-                    avslutning=true;    
+                    avslutning = true;
                 }
 
                 break;
             }
 
-
+            //spelarens första två kort
             Console.WriteLine($"Dina startkort kommer att vara {rndmsuits} {rndmvalue} och {rndmsuits2} {rndmvalue2}");
             Console.WriteLine($"Du kommer nu att ha {rndmvalue + rndmvalue2} poäng");
             Console.WriteLine("Vill du ta ett nytt kort (y/n)");
@@ -94,11 +107,12 @@ namespace ____
             int startplayer = rndmvalue + rndmvalue2;
             int endplayer = startplayer;
 
+            //Spelarens While loop
             while (sant)
             {
                 int rndmvalue5 = number[random.Next(0, 11)];
                 string rndmsuits5 = suits[random.Next(0, 4)];
-               
+
                 if (endplayer == startplayer)
                 {
                     endplayer = startplayer + rndmvalue5;
@@ -106,7 +120,7 @@ namespace ____
 
                 else
                 {
-                    endplayer = endplayer + rndmvalue5;    
+                    endplayer = endplayer + rndmvalue5;
                 }
 
 
@@ -138,9 +152,10 @@ namespace ____
                 }
             }
 
+            //Datrons while loop || avslutning
             while (!sant)
             {
-                int rndmvalue3=number[random.Next(0, 11)];
+                int rndmvalue3 = number[random.Next(0, 11)];
                 int rndmvalue4 = number[random.Next(0, 11)];
 
                 int rndmvalue5 = number[random.Next(0, 11)];
@@ -176,7 +191,7 @@ namespace ____
                         break;
                     }
 
-                    if(PCend > 21)
+                    if (PCend > 21)
                     {
                         Console.WriteLine("Grattis du vann");
                         Console.WriteLine($"Datorn fick {PCend} poäng");
@@ -191,4 +206,6 @@ namespace ____
         }
     }
 }
+
+
 
