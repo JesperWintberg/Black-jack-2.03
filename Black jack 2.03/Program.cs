@@ -62,7 +62,7 @@ namespace ____
                 Console.WriteLine("Tack för du har spelat");
                 Console.WriteLine("Ha en bra dag");
                 Console.Clear();
-                
+
             }
 
             // Visar spelregler 
@@ -206,6 +206,9 @@ namespace ____
         }
     }
 }
+
+
+
 
 
 
