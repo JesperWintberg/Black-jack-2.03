@@ -1,7 +1,3 @@
-using System;
-using System.Net.Http.Headers;
-using static System.Net.Mime.MediaTypeNames;
-
 namespace ____
 {
     class Program
@@ -9,7 +5,10 @@ namespace ____
         static void Main(string[] args)
         {
             int[] number = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
+
             string[] suits = { "Klöver", "Spader", "Knäckt", "Hjärter" };
+
+            string[] winner = new string[1];  
 
             Random random = new Random();
 
@@ -29,39 +28,45 @@ namespace ____
             string rndmsuits2 = suits[random.Next(0, 4)];
 
             //start 
-            Console.WriteLine("Välkommen till Black jack");
-            Console.WriteLine("1. Spela Black Jack");
-            Console.WriteLine("2. See förra vinnaren (WIP)");
-            Console.WriteLine("3. Spelets regler");
-            Console.WriteLine("4. Stänga av programet");
-            Console.Write("Skriv här: "); string start = Console.ReadLine();
-            int start2 = int.Parse(start);
-            Console.Clear();
-
-            switch (start2)
+            try
             {
-                case 1:
-                    sant = true;
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    spelregler = true;
-                    avslutning = true;
-                    break;
-                case 4:
-                    avslutning = true;
-                    sant = false;
-                    break;
+                Console.WriteLine("Välkommen till Black jack");
+                Console.WriteLine("1. Spela Black Jack");
+                Console.WriteLine("2. See förra vinnaren (WIP)");
+                Console.WriteLine("3. Spelets regler");
+                Console.WriteLine("4. Stänga av programet");
+                Console.Write("Skriv här: "); string start = Console.ReadLine();
+                int start2 = int.Parse(start);
+                Console.Clear();
+
+                switch (start2)
+                {
+                    case 1:
+                        sant = true;
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        spelregler = true;
+                        avslutning = true;
+                        break;
+                    case 4:
+                        avslutning = true;
+                        sant = false;
+                        break;
+
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Error: 501");
 
             }
-
             //Avslutnings medelande
-            while (avslutning)
+            if (avslutning)
             {
                 Console.WriteLine("Tack för du har spelat");
                 Console.WriteLine("Ha en bra dag");
-                Console.Clear();
 
             }
 
@@ -135,8 +140,7 @@ namespace ____
                 {
                     Console.WriteLine("Grattis du har vunnit");
                     Console.WriteLine($"Du fick {endplayer} poäng");
-                    Console.Write("Skriv in ditt namn: ");
-                    string namn = Console.ReadLine();
+                    Console.Write("Skriv in ditt namn: "); 
                     break;
                 }
 
@@ -171,7 +175,6 @@ namespace ____
                         Console.WriteLine($"Datorn fick {PCend} poäng");
                         Console.WriteLine($"Du fick {endplayer} poäng");
                         Console.Write("Skriv in ditt namn: ");
-                        string namn = Console.ReadLine();
                         break;
                     }
 
@@ -197,7 +200,6 @@ namespace ____
                         Console.WriteLine($"Datorn fick {PCend} poäng");
                         Console.WriteLine($"Du fick {endplayer} poäng");
                         Console.Write("Skriv in ditt namn: ");
-                        string namn = Console.ReadLine();
                     }
                 }
 
@@ -206,9 +208,3 @@ namespace ____
         }
     }
 }
-
-
-
-
-
-
